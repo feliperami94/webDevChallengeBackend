@@ -1,23 +1,19 @@
 package com.toDoListChallenge.toDoListChallenge.service;
 
-
+import com.toDoListChallenge.toDoListChallenge.dto.CategoryDTO;
 import com.toDoListChallenge.toDoListChallenge.entity.Category;
 import com.toDoListChallenge.toDoListChallenge.entity.Task;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface TodoService extends JpaRepository {
-
+public interface ToDoService {
     Category createCategory(Category category);
 
     Category createTask(Task task);
 
-    void deleteCategory(Category category);
+    void deleteCategory(Long id);
 
-    void deleteTask(Task task);
+    void deleteTask(Long id);
 
-    List<Category> getAllCategories();
-
-
+    List<CategoryDTO> getAllCategories();
 }

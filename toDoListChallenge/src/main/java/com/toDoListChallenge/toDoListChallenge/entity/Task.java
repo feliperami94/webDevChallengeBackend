@@ -15,4 +15,5 @@ public class Task {
     private Long taskId;
     private String taskMessage;
     private Boolean taskStatus;
+    private Long fkCategory;
 }

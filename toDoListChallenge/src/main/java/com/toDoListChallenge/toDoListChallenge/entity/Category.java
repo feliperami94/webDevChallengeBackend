@@ -16,13 +16,16 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String categoryName;
-    private List<Task> taskList;
 
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
+    private List<Task> taskList;
+
+
     public Category addTask(Task task){
-        this.taskList.add(task)
+        this.taskList.add(task);
+        return this;
     }
 }

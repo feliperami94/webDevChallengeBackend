@@ -31,14 +31,17 @@ public class Controller {
         return toDoService.createTask(task);
     }
 
-    @DeleteMapping("/task/{id}")
-    public void deleteTask(@RequestBody Long id){
-        deleteTask(id);
+    @DeleteMapping("/delete/task/{id}")
+    public void deleteTask(@PathVariable Long id){
+        toDoService.deleteTask(id);
     }
 
-    @DeleteMapping("/category/{id}")
-    public void deleteCategory(@RequestBody Long id){
-        deleteCategory(id);
+    @DeleteMapping("/delete/category/{id}")
+    public void deleteCategory(@PathVariable Long id){
+        toDoService.deleteCategory(id);
     }
+
+
+
 
 }

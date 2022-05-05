@@ -7,4 +7,5 @@ public class TaskDTO {
     private Long id;
     private String taskMessage;
     private boolean taskStatus;
+    private Long fkCategory;
 }

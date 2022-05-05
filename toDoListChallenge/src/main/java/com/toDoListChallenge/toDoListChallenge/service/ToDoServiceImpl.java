@@ -59,16 +59,19 @@ public class ToDoServiceImpl implements ToDoService{
 
 
     @Override
-    public Category createCategory(Category category) {
-
-        return categoryRepository.save(category);
+    public Category createCategory(CategoryDTO categoryDTO) {
+        Category newCategory = new Category();
+        newCategory = revertCategoryFromDTO(categoryDTO);
+        return categoryRepository.save(newCategory);
     }
 
     @Override
-    public Category createTask(Task task) {
-        Category category = categoryRepository.findById(task.getFkCategory()).get();
-        category.addTask(task);
-        taskRepository.save(task);
+    public Category createTask(TaskDTO taskDTO) {
+        Task newTask = new Task();
+        newTask = revertTaskFromDTO(taskDTO);
+        Category category = categoryRepository.findById(newTask.getFkCategory()).get();
+        category.addTask(newTask);
+        taskRepository.save(newTask);
         return categoryRepository.save(category);
     }
 

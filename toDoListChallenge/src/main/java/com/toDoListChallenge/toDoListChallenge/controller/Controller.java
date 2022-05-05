@@ -1,6 +1,7 @@
 package com.toDoListChallenge.toDoListChallenge.controller;
 
 import com.toDoListChallenge.toDoListChallenge.dto.CategoryDTO;
+import com.toDoListChallenge.toDoListChallenge.dto.TaskDTO;
 import com.toDoListChallenge.toDoListChallenge.entity.Category;
 import com.toDoListChallenge.toDoListChallenge.entity.Task;
 import com.toDoListChallenge.toDoListChallenge.service.ToDoServiceImpl;
@@ -22,13 +23,13 @@ public class Controller {
     }
 
     @PostMapping("/category")
-    public Category createCategory(@RequestBody Category category){
-        return toDoService.createCategory(category);
+    public Category createCategory(@RequestBody CategoryDTO categoryDTO){
+        return toDoService.createCategory(categoryDTO);
     }
 
     @PostMapping("/task")
-    public Category createTask(@RequestBody Task task){
-        return toDoService.createTask(task);
+    public Category createTask(@RequestBody TaskDTO taskDTO){
+        return toDoService.createTask(taskDTO);
     }
 
     @DeleteMapping("/delete/task/{id}")

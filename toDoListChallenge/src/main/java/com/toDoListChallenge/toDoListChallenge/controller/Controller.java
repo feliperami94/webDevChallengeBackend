@@ -43,6 +43,10 @@ public class Controller {
         toDoService.deleteCategory(id);
     }
 
+    @PutMapping("/update/task")
+    public Category updateTask(@RequestBody TaskDTO taskDTO) {
+        return toDoService.updateTask(taskDTO);
+    }
 
 
 

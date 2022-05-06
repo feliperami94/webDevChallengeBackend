@@ -16,5 +16,7 @@ public interface ToDoService {
 
     void deleteTask(Long id);
 
+    Category updateTask(TaskDTO taskDTO);
+
     List<CategoryDTO> getAllCategories();
 }

@@ -89,5 +89,19 @@ public class ToDoServiceImpl implements ToDoService{
         taskRepository.deleteById(id);
     }
 
+    @Override
+    public Category updateTask(TaskDTO taskDTO){
+        Task updatedTask = new Task();
+        updatedTask = revertTaskFromDTO(taskDTO);
+        Category category = categoryRepository.findById(updatedTask.getFkCategory()).get();
+
+        if (!taskRepository.existsById(updatedTask.getTaskId())){
+            System.out.println("The task doesn't exists");
+        } else {
+            taskRepository.save(updatedTask);
+        }
+        return categoryRepository.save(category);
+
+    }
 
 }
